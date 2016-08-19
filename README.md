@@ -29,9 +29,7 @@ Each module has to be configured correctly with your unique Payer Credentials be
 
 The key values can be found under the `Settings/Account` section in [Payer Administration](https://secure.payer.se/adminweb/inloggning/inloggning.php).
 
-Configure the module by replacing the placeholders in the `PayReadConf.php` file with these values. The configuration file can be found in the `payer__common` folder in the `modules` folder. And that's it!
-
-**NOTE:** Remember to turn off the test environment before you go in production mode.
+Setup the module by replacing the placeholders in the `PayReadConf.php` file with these values. The configuration file can be found in the `payer__common` folder in the `modules` folder. And that's it!
 
 ## Support
 
