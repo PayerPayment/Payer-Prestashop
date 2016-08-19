@@ -1,3 +1,5 @@
+![Payer Logotype](http://payer.se/public/PAYER_LOGO_GITHUB_2016.jpg)
+
 # Payer Prestashop Module
 
 This is the payment module to get started with Payers payment services in Prestashop.
