@@ -17,7 +17,7 @@ For more information about our payment services, please visit [www.payer.se](htt
   2. Setup the configuration by using your Payer Credentials. See the `Configuration` section below for further details
   3. Click `Install` on the module to use in the `Payment Modules` section in your Prestashop administration.
   4. Enable the module in the checkout options and make sure that `test mode` is turned off when in production
-  5. You are live!
+  5. You are now live!
 
 ## Configuration
 
@@ -31,7 +31,7 @@ The key values can be found under the `Settings/Account` section in [Payer Admin
 
 Setup the configuration for the module by replacing the placeholders in the `PayReadConf.php` file with these values. The configuration file can be found in the `payer__common` folder in the `modules` folder. And that's it!
 
-**NOTICE** Remember to turn off the test environment before you go in production mode.
+**NOTE:** Remember to turn off the test environment before you go in production mode.
 
 ## Support
 
