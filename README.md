@@ -7,22 +7,27 @@ For more information about our payment services, please visit [www.payer.se](htt
 ## Requirements
 
   * [Prestashop](https://www.prestashop.com): Version 1.6.X
-  * [Payer Configuration](https://payer.se) - Missing the configuration file? Contact the [Customer Service](mailto:kundtjanst@payer.se).
+  * [Payer Credentials](https://payer.se) - Missing credentials? Contact the [Customer Service](mailto:kundtjanst@payer.se).
 
 ## Installation
 
-  1. The `payer__common` folder consists your e.g. your Payer Configuration. Copy it into the `module` directory in your Prestashop installation.
-  2. Then copy each payment method module folder to use into the `module` directory in your Prestashop installation.
+  1. Copy all directories into the `modules` folder in the root of your Prestashop installation.
+  2. Setup the configuration by using your Payer Credentials. See the `Configuration` section below for further details
   3. Click `Install` on the module to use in the `Payment Modules` section in your Prestashop administration.
-  4. Turn On/Off the test invironment
+  4. Enable the module in the checkout options and make sure that `test mode` is turned off when in production
+  5. You are live!
 
 ## Configuration
 
-You need to have your `PayReadConf` file available. Replace that file with the placeholder in the `payer__common` folder.
+Each module has to be configured correctly with your unique Payer Credentials before it can be used in production. The credentials corresponds to the following parameters:
 
-## Environment
+  * `AGENT ID`
+  * `KEY 1`
+  * `KEY 2`
 
-You can switch between the `test` and `live` environment in the payment method interface through the `Payment Modules` section in Prestashop. 
+The key values can be found under the `Settings/Account` section in [Payer Administration](https://secure.payer.se/adminweb/inloggning/inloggning.php).
+
+Setup the configuration for the module by replacing the placeholders in the `PayReadConf.php` file with these values. The configuration file can be found in the `payer__common` folder in the `modules` folder. And that's it!
 
 **NOTICE** Remember to turn off the test environment before you go in production mode.
 
