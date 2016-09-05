@@ -132,6 +132,7 @@ class Payer_all extends PaymentModule {
         }
 
         $products = $params['cart']->getProducts();
+        $sub_amount = 0.0;
 
         $i=0;
         foreach($products as $key => $product){
