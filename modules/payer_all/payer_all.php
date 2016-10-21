@@ -199,10 +199,10 @@ class Payer_all extends PaymentModule {
         } else {
 			$payerApi->set_test_mode('false');
         }
-        	
-        $Auth_url = stripslashes("http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["REQUEST_URI"])) . "/modules/payer__common/auth.php?id_cart=".intval($params['cart']->id).'&id_order_status=2&amount='.$amount;
-        $Settle_url = stripslashes("http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["REQUEST_URI"])) . "/modules/payer__common/settle.php?id_cart=".intval($params['cart']->id).'&id_order_status=2&amount='.$amount;
-        $Shop_url = stripslashes("http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["REQUEST_URI"])).'/index.php?controller=history'.'&id_cart='.intval($params['cart']->id).'&id_module='.$this->id;
+
+        $Auth_url = stripslashes(_PS_BASE_URL_.__PS_BASE_URI__ . "modules/payer__common/auth.php?id_cart=".intval($params['cart']->id).'&id_order_status=2&amount='.$amount);
+        $Settle_url = stripslashes(_PS_BASE_URL_.__PS_BASE_URI__ . "modules/payer__common/settle.php?id_cart=".intval($params['cart']->id).'&id_order_status=2&amount='.$amount);
+        $Shop_url = stripslashes(_PS_BASE_URL_.__PS_BASE_URI__ .'index.php?controller=history'.'&id_cart='.intval($params['cart']->id).'&id_module='.$this->id);
 
         $payerApi->set_authorize_notification_url($Auth_url);
         $payerApi->set_settle_notification_url($Settle_url);
