@@ -165,13 +165,20 @@ class Payer_enter extends PaymentModule {
 		$giftAmount = 0;
 		if($params['cart']->gift){
 			$i++;
-			$wrapping_fees = (float)(Configuration::get('PS_GIFT_WRAPPING_PRICE'));
-			$wrapping_fees_tax = new Tax((int)(Configuration::get('PS_GIFT_WRAPPING_TAX')));
-			$wrapping_fees *= 1 + (((float)($wrapping_fees_tax->rate) / 100));
-			$wrapping_fees = Tools::convertPrice(Tools::ps_round($wrapping_fees, 2), Currency::getCurrencyInstance((int)($currency->id)));
-			$wrapping_fees_tax = new Tax((int)(Configuration::get('PS_GIFT_WRAPPING_TAX')));
-			$payerApi->add_freeform_purchase($i,"Inslagning",$wrapping_fees,$wrapping_fees_tax->rate,'1');
-			$giftAmount = $wrapping_fees;
+
+			$gift_total_with_tax = (float) ($params['cart']->getOrderTotal(true, Cart::ONLY_WRAPPING));
+			$gift_total_with_tax = Tools::convertPrice(Tools::ps_round($gift_total_with_tax, 2), Currency::getCurrencyInstance((int)($currency->id)));
+
+			$gift_total_no_tax = (float) ($params['cart']->getOrderTotal(false, Cart::ONLY_WRAPPING));
+			$gift_total_no_tax = Tools::convertPrice(Tools::ps_round($gift_total_no_tax, 2), Currency::getCurrencyInstance((int)($currency->id)));
+
+			$gift_tax = $gift_total_with_tax - $gift_total_no_tax;
+			$gift_tax = Tools::convertPrice(Tools::ps_round($gift_tax, 2), Currency::getCurrencyInstance((int)($currency->id)));
+
+			$gift_tax_percentage = ($gift_tax / $gift_total_no_tax) * 100;
+			$payerApi->add_freeform_purchase($i,"Paketinslagning",$gift_total_with_tax,$gift_tax_percentage,'1');
+
+			$giftAmount = $gift_total_with_tax;
 		}
 
 		$amount = $amount+$discountAmount+$giftAmount;

@@ -8,7 +8,7 @@ For more information about our payment services, please visit [www.payer.se](htt
 
 ## Requirements
 
-  * [Prestashop](https://www.prestashop.com): Version 1.6.X
+  * [Prestashop](https://www.prestashop.com): Version 1.6.1
   * [Payer Credentials](https://payer.se) - Missing credentials? Contact the [Customer Service](mailto:kundtjanst@payer.se).
 
 ## Installation
