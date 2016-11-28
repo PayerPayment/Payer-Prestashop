@@ -205,7 +205,7 @@ class Payer_swish extends PaymentModule {
 
 		$Auth_url = stripslashes(_PS_BASE_URL_.__PS_BASE_URI__ . "modules/payer__common/auth.php?id_cart=".intval($params['cart']->id).'&id_order_status=2&amount='.$amount);
 		$Settle_url = stripslashes(_PS_BASE_URL_.__PS_BASE_URI__ . "modules/payer__common/settle.php?id_cart=".intval($params['cart']->id).'&id_order_status=2&amount='.$amount);
-		$Shop_url = stripslashes(_PS_BASE_URL_.__PS_BASE_URI__ .'index.php?controller=history'.'&id_cart='.intval($params['cart']->id).'&id_module='.$this->id);
+		$Shop_url = stripslashes(_PS_BASE_URL_.__PS_BASE_URI__ .'index.php?controller=order-confirmation'.'&id_cart='.intval($params['cart']->id).'&id_module='.$this->id);
 
 		$payerApi->set_authorize_notification_url($Auth_url);
 		$payerApi->set_settle_notification_url($Settle_url);
